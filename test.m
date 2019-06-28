@@ -248,7 +248,7 @@ grid on
 
 %% Classification stage
 
-train_labels = load('train_labels.csv');
+train_labels = load('train_labels_audio.csv');
 train_labels = train_labels(r+1:end); % we cannot estimate the state indicators for the first r points, hence in this demo we discard them
 
 state_ind_matrix = [];
@@ -258,7 +258,7 @@ end
 train_ind_hist = hist(state_ind_matrix(:, 1:(round(length(drl1)/4)-r)),[1:K],1); % Create a histogram of the 
                                                                                  % posterior indicators for the training test
 
-test_labels = load('test_labels.csv');
+test_labels = load('test_labels_audio.csv');
 test_ind_hist = hist(state_ind_matrix(:,(round(length(drl1)/4)-r+1):end),[1:K],1); % Create a 
                                                                                    % histogram of the posterior indicators for testing
 
