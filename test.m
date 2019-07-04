@@ -257,11 +257,10 @@ for d = 1:MaxIter
 end
 train_ind_hist = hist(state_ind_matrix(:, 1:(round(length(drl1)/4)-r)),[1:K],1); % Create a histogram of the 
                                                                                  % posterior indicators for the training test
-
+                                                                                 
 test_labels = load('test_labels_audio.csv');
 test_ind_hist = hist(state_ind_matrix(:,(round(length(drl1)/4)-r+1):end),[1:K],1); % Create a 
                                                                                    % histogram of the posterior indicators for testing
-
 
 prob_train = classification_naive_bayes_train( train_ind_hist, train_labels);
 

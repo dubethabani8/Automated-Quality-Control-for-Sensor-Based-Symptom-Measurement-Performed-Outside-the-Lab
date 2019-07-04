@@ -26,7 +26,7 @@ function [predict_class, class_prob] = classification_naive_bayes_test(y, params
     predict_class = ones(T,1);
     class_prob = zeros(T,2);
     for t=1:T
-        if sum(y(:,t).*log(params(:,1)))<sum(y(:,t).*log(params(:,2)))
+        if sum(y(:,t).*log(params(:,1)))>sum(y(:,t).*log(params(:,2)))
             predict_class(t) = 2;
         end;
         class_prob(t,1) = sum(y(:,t).*log(params(:,1)))/(sum(y(:,t).*log(params(:,1))) + sum(y(:,t).*log(params(:,2))));

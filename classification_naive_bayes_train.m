@@ -24,7 +24,7 @@ function params = classification_naive_bayes_train(y, train_labels)
     T = size(y,2);
     K = size(y,1);
     for k=1:K
-        IndClass1 = (train_labels==1);      
+        IndClass1 = (train_labels==1);
         params(k,1) = sum(y(k,IndClass1));
         IndClass2 = (train_labels==2);
         params(k,2) = sum(y(k,IndClass2));
